@@ -45,4 +45,16 @@ public class ClientController {
         }
     }
 
+    //deleta o cliente
+
+    @DeleteMapping("/deleteClient")
+    public ResponseEntity<?> delete(@PathVariable Long idFromUrlFront){
+        try {
+            ResponseEntity<?> clientFromService = actionService.deleteClient(idFromUrlFront);
+            return new ResponseEntity<>(idFromUrlFront, HttpStatus.OK);
+        } catch (RuntimeException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
 }
