@@ -2,5 +2,5 @@ package thima.springeangular.Repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface ClientRepository extends CrudRepository<> {
+public interface ClientRepository {
 }
