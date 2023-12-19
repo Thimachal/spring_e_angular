@@ -14,24 +14,35 @@ public class ClientController {
     @Autowired
     private ClientService actionService;
 
-        @GetMapping("/allClients")
-        public ResponseEntity<?> getAllClients(){
-            try {
-                return new ResponseEntity<>(actionService.listAllClients().getBody(),HttpStatus.OK);
-            }catch (RuntimeException e) {
-                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-            }
-
+    @GetMapping("/allClients")
+    public ResponseEntity<?> getAllClients() {
+        try {
+            return new ResponseEntity<>(actionService.listAllClients().getBody(), HttpStatus.OK);
+        } catch (RuntimeException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        @PostMapping("/registerClient")
+
+    }
+
+    @PostMapping("/registerClient")
     public ResponseEntity<?> register(@RequestBody Client clientFromBodyFront) {
 
-            try {
-                ResponseEntity<?> clientFromService = actionService.registerClient(clientFromBodyFront);
-                return new ResponseEntity<>(clientFromService.getBody(), HttpStatus.CREATED);
-            } catch (RuntimeException e) {
-                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-            }
+        try {
+            ResponseEntity<?> clientFromService = actionService.registerClient(clientFromBodyFront);
+            return new ResponseEntity<>(clientFromService.getBody(), HttpStatus.CREATED);
+        } catch (RuntimeException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @PutMapping
+    public ResponseEntity<?> update(@RequestBody Client clientFromBodyFront) {
+        try {
+            ResponseEntity<?> clientFromService = actionService.updateClient(clientFromBodyFront);
+            return new ResponseEntity<>(clientFromService.getBody(), HttpStatus.ACCEPTED);
+        } catch (RuntimeException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
 
 }
