@@ -35,7 +35,7 @@ public class ClientController {
         }
     }
 
-    @PutMapping
+    @PutMapping("/updateClient")
     public ResponseEntity<?> update(@RequestBody Client clientFromBodyFront) {
         try {
             ResponseEntity<?> clientFromService = actionService.updateClient(clientFromBodyFront);
