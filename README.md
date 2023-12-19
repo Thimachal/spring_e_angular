@@ -1,1 +1,1 @@
-#Spring and Angular repository code.#
+Spring and Angular repository code.
