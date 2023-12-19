@@ -7,6 +7,6 @@ import thima.springeangular.Model.Client;
 import java.util.List;
 
 @Repository
-public interface ClientRepository extends CrudRepository<Client,Long> {
-List<Client> findAll();
+public interface ClientRepository extends CrudRepository<Client, Long> {
+    List<Client> findAll();
 }
