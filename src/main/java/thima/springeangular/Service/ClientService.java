@@ -9,16 +9,26 @@ import thima.springeangular.Repository.ClientRepository;
 
 @Service
 public class ClientService {
-
     @Autowired
     private ClientRepository actionRepository;
+
+    //registra o cliente
     public ResponseEntity<?> registerClient(Client clientFromBodyFront) {
-    Client client = new Client();
-       client = actionRepository.save(clientFromBodyFront);
+        Client client = new Client();
+        client = actionRepository.save(clientFromBodyFront);
         return ResponseEntity.ok(client);
     }
 
+    //lista o cliente
     public ResponseEntity<?> listAllClients() {
         return ResponseEntity.ok(actionRepository.findAll());
+    }
+
+    //atualiza o cliente
+    public ResponseEntity<?> updateClient(Client clientFromBodyFront) {
+        Client client = new Client();
+
+        client = actionRepository.save(clientFromBodyFront);
+        return ResponseEntity.ok(client);
     }
 }
