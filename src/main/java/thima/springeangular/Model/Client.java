@@ -9,14 +9,13 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long clientID;
     private String clientName;
-
-    private Integer clientAge;
+    private Short clientAge;
     private String clientCity;
 
     public Client() {
     }
 
-    public Client(Long clientID, String clientName, Integer clientAge, String clientCity) {
+    public Client(Long clientID, String clientName, Short clientAge, String clientCity) {
         this.clientID = clientID;
         this.clientName = clientName;
         this.clientAge = clientAge;
@@ -39,11 +38,11 @@ public class Client {
         this.clientName = clientName;
     }
 
-    public Integer getClientAge() {
+    public Short getClientAge() {
         return clientAge;
     }
 
-    public void setClientAge(Integer clientAge) {
+    public void setClientAge(Short clientAge) {
         this.clientAge = clientAge;
     }
 
