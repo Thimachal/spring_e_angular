@@ -1,5 +1,12 @@
 package thima.springeangular.Model;
 
-public class Client {
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "client")
+public class Client {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long clientID;
+    private String clientName;
 }
