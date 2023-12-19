@@ -17,4 +17,8 @@ public class ClientService {
        client = actionRepository.save(clientFromBodyFront);
         return ResponseEntity.ok(client);
     }
+
+    public ResponseEntity<?> listAllClients() {
+        return ResponseEntity.ok(actionRepository.findAll());
+    }
 }
