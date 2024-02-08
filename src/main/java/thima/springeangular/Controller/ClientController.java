@@ -9,6 +9,7 @@ import thima.springeangular.Service.ClientService;
 
 @RestController()
 @RequestMapping("/clients")
+@CrossOrigin(origins = "*")
 public class ClientController {
 
     @Autowired
@@ -47,13 +48,13 @@ public class ClientController {
 
     //deleta o cliente
 
-    @DeleteMapping("/deleteClient")
-    public ResponseEntity<?> delete(@PathVariable Long idFromUrlFront){
+    @DeleteMapping("/deleteClient/{idFromUrlFront}")
+    public void delete(@PathVariable Long idFromUrlFront){
         try {
-            ResponseEntity<?> clientFromService = actionService.deleteClient(idFromUrlFront);
-            return new ResponseEntity<>(idFromUrlFront, HttpStatus.OK);
+            actionService.deleteClient(idFromUrlFront);
+
         } catch (RuntimeException e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            System.out.println("Algo deu errado, tente novamente");
         }
     }
 

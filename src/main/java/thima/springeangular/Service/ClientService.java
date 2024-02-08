@@ -2,6 +2,7 @@ package thima.springeangular.Service;
 
 import org.modelmapper.internal.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -34,9 +35,7 @@ public class ClientService {
     }
 
 
-    public ResponseEntity<?> deleteClient(Long idFromUrlFront) {
-
+    public void deleteClient(Long idFromUrlFront) {
         actionRepository.deleteById(idFromUrlFront);
-        return (ResponseEntity<?>) ResponseEntity.ok();
     }
 }
